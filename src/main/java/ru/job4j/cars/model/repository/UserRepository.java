@@ -102,7 +102,18 @@ public class UserRepository {
     }
 
     public Optional<User> findByLogin(String login) {
-        return findByLikeLogin(login).stream().findFirst();
+        Optional<User> rsl = Optional.empty();
+        try (Session session = sf.openSession()) {
+            session.beginTransaction();
+            User user = (User) session.createQuery(
+                    "FROM User WHERE login = :fLogin")
+                    .setParameter("fLogin", login)
+                    .getSingleResult();
+            rsl = Optional.of(user);
+        } catch (Exception e) {
+            LOG.error("Exception", e);
+        }
+        return rsl;
     }
 
 
