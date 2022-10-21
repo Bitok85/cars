@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "auto_user")
@@ -17,6 +18,10 @@ public class User {
     private String login;
     @EqualsAndHashCode.Exclude
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "auto_user_id")
+    private List<PriceHistory> priceHistories;
 
     public User() {
     }
