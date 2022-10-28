@@ -10,4 +10,3 @@ CREATE TABLE  IF NOT EXISTS auto_post (
     created TIMESTAMP,
     auto_user_id INT REFERENCES auto_user(id)
 );
-

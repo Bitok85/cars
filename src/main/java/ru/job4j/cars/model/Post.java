@@ -29,4 +29,7 @@ public class Post {
     @JoinColumn(name = "auto_user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
 }
