@@ -14,7 +14,7 @@ import java.time.temporal.ChronoUnit;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "PRICE_HISTORY")
+@Table(name = "auto_post")
 public class Post {
 
     @Id
@@ -24,6 +24,7 @@ public class Post {
 
     private String text;
     private LocalDateTime created = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
+    private byte[] photo;
 
     @ManyToOne
     @JoinColumn(name = "auto_user_id")

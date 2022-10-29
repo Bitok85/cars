@@ -5,7 +5,8 @@ create table engine(
 
 create table car(
     id serial primary key,
-    name text,
+    brand text,
+    model text,
     engine_id int not null references engine(id)
 );
 

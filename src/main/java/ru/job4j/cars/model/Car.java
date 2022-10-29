@@ -18,6 +18,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String brand;
+    private String model;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "engine_id")
     private List<Engine> engines;
