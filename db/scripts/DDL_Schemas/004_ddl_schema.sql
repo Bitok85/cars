@@ -6,7 +6,7 @@ create table engine(
 create table car(
     id serial primary key,
     name text,
-    engine_id int not null unique references engine(id)
+    engine_id int not null references engine(id)
 );
 
 create table driver(
