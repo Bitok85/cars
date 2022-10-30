@@ -21,9 +21,9 @@ public class Car {
     private String brand;
     private String model;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "engine_id")
-    private List<Engine> engines;
+    @ManyToOne
+    @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "engine_id"))
+    private Engine engine;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
