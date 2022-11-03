@@ -1,14 +1,15 @@
 package ru.job4j.cars.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table
@@ -20,11 +21,15 @@ public class Car {
 
     private String brand;
     private String model;
+    private String color;
+    private String body;
+    private LocalDate manufactured;
 
     @ManyToOne
     @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "engine_id"))
     private Engine engine;
 
+    @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "history_owner",
@@ -37,4 +42,11 @@ public class Car {
     )
     private Set<Driver> drivers = new HashSet<>();
 
+    public Car(int id) {
+        this.id = id;
+    }
+
+    public Car(String brand) {
+        this.brand = brand;
+    }
 }

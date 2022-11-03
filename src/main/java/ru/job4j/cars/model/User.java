@@ -2,6 +2,7 @@ package ru.job4j.cars.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,20 +10,24 @@ import java.util.List;
 @Entity
 @Table(name = "auto_user")
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private int id;
-    @EqualsAndHashCode.Exclude
+
     private String login;
-    @EqualsAndHashCode.Exclude
+
     private String password;
 
+    @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "auto_user_id")
     private List<PriceHistory> priceHistories;
 
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(
             name = "participates",

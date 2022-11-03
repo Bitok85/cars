@@ -2,11 +2,11 @@ package ru.job4j.cars.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.job4j.cars.repository.DriverRepository;
+import ru.job4j.cars.repository.UserRepository;
 
 @Service
 @AllArgsConstructor
-public class DriverService {
+public class UserService {
 
-    private DriverRepository driverRepository;
+    private UserRepository userRepository;
 }
