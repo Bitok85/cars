@@ -24,6 +24,8 @@ public class Car {
     private String color;
     private String body;
     private LocalDate manufactured;
+    @Column(name = "km_run")
+    private int kmRun;
 
     @ManyToOne
     @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "engine_id"))

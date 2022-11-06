@@ -23,6 +23,7 @@ public class Post {
     private int id;
 
     private String text;
+    private int price;
     private LocalDateTime created = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
     private byte[] photo;
     private boolean sold;

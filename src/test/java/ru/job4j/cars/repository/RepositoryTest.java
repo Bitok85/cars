@@ -6,7 +6,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import ru.job4j.cars.model.Post;
 import ru.job4j.cars.model.User;
 
@@ -27,7 +28,7 @@ public class RepositoryTest {
     private final UserRepository userRepository = new UserRepository(crudRepository);
 
 
-    @After
+    @AfterEach
     public void wipeTable() {
         try (Session session = sf.openSession()) {
             session.beginTransaction();
