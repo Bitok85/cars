@@ -6,7 +6,18 @@
 
 
 ## Используемые технологии:
-Java17, Spring boot, Hibernate, ThymeLeaf, Liquibase, Lombok, BootStrap, PostgreSQL, H2, AssertJ.
+- Java17
+- Spring boot 2.5.2
+- Hibernate 5.6.11
+- ThymeLeaf 2.5.2
+- Liquibase 3.6.2
+- Lombok 1.18.22
+- BootStrap 5.2.2
+- PostgreSQL-14
+- H2 DB 2.1.212
+- junit.jupiter 5.9.0
+- AssertJ 3.23.1
+- log4j 1.2.17
 
 
 ## Для корректной работы приложения необходимо установить:
@@ -17,6 +28,15 @@ Java17, Spring boot, Hibernate, ThymeLeaf, Liquibase, Lombok, BootStrap, Postgre
 ## Запуск приложения
 - Создайте базу данных "cars" использоваием командной строки или в любой платформе для администрирования PostgreSQL, например PgAdmin.
 - Запуск приложения производится из корневого каталога проекта с использованием Maven. Необходимо выполнить следующие команды:
+  ```shell
   - mvn clean install
   - mvn spring-boot:run
+  ```
 
+<img src="C:\Users\Анна\Pictures\Screenshots\Снимок экрана 2022-11-08 134918.png" width="500" height="300"/>
+<img src="C:\Users\Анна\Pictures\Screenshots\Снимок экрана 2022-11-08 135019.png" width="500" height="300"/>
+
+
+## Контакты:
+- mail: kan041185@gmail.com
+- telegram: Ak_bit

@@ -82,4 +82,8 @@ public class Post {
     public Post(String text) {
         this.text = text;
     }
+
+    public Post(Car car) {
+        this.car = car;
+    }
 }

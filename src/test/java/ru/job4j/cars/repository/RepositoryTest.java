@@ -5,9 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.junit.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import ru.job4j.cars.model.Car;
+import ru.job4j.cars.model.Engine;
 import ru.job4j.cars.model.Post;
 import ru.job4j.cars.model.User;
 
@@ -26,7 +27,8 @@ public class RepositoryTest {
     private final CrudRepository crudRepository = new CrudRepository(sf);
     private final PostRepository postRepository = new PostRepository(crudRepository);
     private final UserRepository userRepository = new UserRepository(crudRepository);
-
+    private final CarRepository carRepository = new CarRepository(crudRepository);
+    private final EngineRepository engineRepository = new EngineRepository(crudRepository);
 
     @AfterEach
     public void wipeTable() {
@@ -111,6 +113,21 @@ public class RepositoryTest {
         );
         posts.forEach(postRepository::addPost);
         assertThat(postRepository.findWithPhoto().get(0).getPhoto()).isNotNull();
+    }
+
+    @Test
+    public void findPostsByCarBrand() {
+        List<Engine> engines = engineRepository.findAll();
+        List<Car> cars = List.of(
+                new Car("volvo", engines.get(0)),
+                new Car("saab", engines.get(1)),
+                new Car("BMW", engines.get(0))
+        );
+        cars.forEach(car -> postRepository.addPost(new Post(carRepository.addCar(car).get())));
+        postRepository.findByBrand("saab").forEach(System.out::println);
+        assertThat(postRepository.findByBrand("saab").size()).isEqualTo(1);
+
+
     }
 
 }

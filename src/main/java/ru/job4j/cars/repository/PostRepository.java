@@ -21,7 +21,8 @@ public class PostRepository {
     private static final String FIND_ALL_BY_USER = "FROM Post WHERE :pUserId = auto_user_id";
     private static final String LAST_DAY_POSTS = "SELECT p FROM Post p WHERE p.created >= current_date";
     private static final String POSTS_WITH_PHOTO = "FROM Post WHERE photo IS NOT NULL";
-    private static final String POSTS_BY_BRAND = "FROM Post as post LEFT JOIN Car as car WITH car.model = :fModel";
+    private static final String POSTS_BY_BRAND
+            = "SELECT DISTINCT post FROM Post post JOIN FETCH post.car car WHERE car.brand = :cBrand";
     private static final String DELETE = "DELETE FROM Post WHERE :pId = id";
 
     private final CrudRepository crudRepository;
@@ -83,6 +84,6 @@ public class PostRepository {
     }
 
     public List<Post> findByBrand(String brand) {
-        return crudRepository.query(POSTS_BY_BRAND, Post.class, Map.of("fModel", brand));
+        return crudRepository.query(POSTS_BY_BRAND, Post.class, Map.of("cBrand", brand));
     }
 }

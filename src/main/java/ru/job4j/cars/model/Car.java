@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class Car {
     private String model;
     private String color;
     private String body;
-    private LocalDate manufactured;
+    private LocalDateTime manufactured;
     @Column(name = "km_run")
     private int kmRun;
 
@@ -31,6 +32,7 @@ public class Car {
     @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "engine_id"))
     private Engine engine;
 
+    /**
     @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
@@ -43,12 +45,13 @@ public class Car {
             }
     )
     private Set<Driver> drivers = new HashSet<>();
-
+    */
     public Car(int id) {
         this.id = id;
     }
 
-    public Car(String brand) {
+    public Car(String brand, Engine engine) {
         this.brand = brand;
+        this.engine = engine;
     }
 }

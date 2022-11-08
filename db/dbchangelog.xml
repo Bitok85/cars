@@ -13,4 +13,5 @@
     <include file="scripts/DDL_Schemas/003_ddl_schema.sql" relativeToChangelogFile="true"/>
     <include file="scripts/DDL_Schemas/004_ddl_schema.sql" relativeToChangelogFile="true"/>
     <include file="scripts/DML_Updates/001_dml_update.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/DML_Updates/002_dml_update.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
