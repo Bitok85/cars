@@ -33,8 +33,11 @@
   - mvn spring-boot:run
   ```
 
-<img src="C:\Users\Анна\Pictures\Screenshots\Снимок экрана 2022-11-08 134918.png" width="500" height="300"/>
-<img src="C:\Users\Анна\Pictures\Screenshots\Снимок экрана 2022-11-08 135019.png" width="500" height="300"/>
+![Снимок экрана 2022-11-08 134918](https://user-images.githubusercontent.com/62056650/200549439-951a3ab3-bd3e-46af-9631-a0c93c575164.png)
+
+![Снимок экрана 2022-11-08 135019](https://user-images.githubusercontent.com/62056650/200549488-bff48cf4-138c-4712-9e69-a92e1df6fd13.png)
+
+
 
 
 ## Контакты:
