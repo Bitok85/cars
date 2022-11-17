@@ -3,6 +3,7 @@ ALTER TABLE auto_post ADD COLUMN car_id int REFERENCES car(id);
 ALTER TABLE auto_user ADD CONSTRAINT login_unique UNIQUE (login);
 ALTER TABLE auto_post ADD COLUMN sold BOOLEAN;
 ALTER TABLE auto_post ADD COLUMN price INT;
+ALTER TABLE auto_post ADD COLUMN photo BYTEA;
 
 --Car schema updates
 ALTER TABLE car ADD COLUMN  body TEXT;

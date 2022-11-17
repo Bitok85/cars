@@ -1,4 +1,4 @@
-package ru.job4j.cars.utils;
+package ru.job4j.cars.util;
 
 import ru.job4j.cars.model.User;
 

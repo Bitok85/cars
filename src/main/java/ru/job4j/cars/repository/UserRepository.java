@@ -3,9 +3,6 @@ package ru.job4j.cars.repository;
 import lombok.AllArgsConstructor;
 import net.jcip.annotations.ThreadSafe;
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.User;
 
