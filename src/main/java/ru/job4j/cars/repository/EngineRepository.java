@@ -42,13 +42,8 @@ public class EngineRepository {
     }
 
     public Optional<Engine> findByTypeAndVol(String type, float vol) {
-        try {
-            return crudRepository.optional(
-                    FIND_BY_TYPE_AND_VOL, Engine.class, Map.of("eType", type, "eVol", vol)
-            );
-        } catch (Exception e) {
-            LOG.error("Engine find by type and vol error");
-        }
-        return Optional.empty();
+        return crudRepository.optional(
+                FIND_BY_TYPE_AND_VOL, Engine.class, Map.of("eType", type, "eVol", vol));
     }
+
 }

@@ -8,10 +8,10 @@
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
 		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
 		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
-    <include file="scripts/DDL_Schemas/001_ddl_schema.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/DDL_Schemas/002_ddl_schema.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/DDL_Schemas/003_ddl_schema.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/DDL_Schemas/004_ddl_schema.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/DML_Updates/001_dml_update.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/DML_Updates/002_dml_update.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/001_ddl_cr_aUser_aPost.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/002_ddl_cr_price_history.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/003_ddl_cr_paricipates.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/004_ddl_cr_engine_car_driver_hOwner.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/001_dml_rows_updates.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/002_dml_data_inserts.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

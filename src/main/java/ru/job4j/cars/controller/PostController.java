@@ -61,7 +61,4 @@ public class PostController {
         postService.addPost(post);
         return "redirect:/account";
     }
-
-
-
 }

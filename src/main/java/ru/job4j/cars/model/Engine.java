@@ -19,6 +19,7 @@ public class Engine {
     @EqualsAndHashCode.Include
     private int id;
 
+    private String name;
     private String type;
     private float vol;
 

@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import ru.job4j.cars.model.Car;
@@ -19,9 +20,9 @@ import static org.assertj.core.api.Assertions.*;
 
 public class RepositoryTest {
 
-    private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+    private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
-    private final SessionFactory sf = new MetadataSources(registry)
+    private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new CrudRepository(sf);
@@ -40,6 +41,11 @@ public class RepositoryTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @AfterAll()
+    public static void destroy() {
+        StandardServiceRegistryBuilder.destroy(REGISTRY);
     }
 
     @Test
@@ -126,8 +132,15 @@ public class RepositoryTest {
         cars.forEach(car -> postRepository.addPost(new Post(carRepository.addCar(car).get())));
         postRepository.findByBrand("saab").forEach(System.out::println);
         assertThat(postRepository.findByBrand("saab").size()).isEqualTo(1);
-
-
     }
 
+    @Test
+    public void whenFindEngineByTypeAndVol() {
+        List<Engine> engines = engineRepository.findAll();
+        Engine engine = engines.get(0);
+        System.out.println(engines.size());
+        System.out.println(engine.getType());
+        System.out.println(engine.getVol());
+        assertThat(engineRepository.findByTypeAndVol(engine.getType(), engine.getVol()).get()).isEqualTo(engine);
+    }
 }
